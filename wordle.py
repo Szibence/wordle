@@ -91,7 +91,7 @@ def check_guess(guess, goal):
         if guess[i] in goal and results[i] != "correct":
             if checked_letters.count(guess[i]) < goal.count(guess[i]):
                 results[i] = "misplaced"
-                checked_letters[i] = guess[i]
+            checked_letters[i] = guess[i]
     
     return results
 
