@@ -1,10 +1,8 @@
-import random
-
 # -*- coding: utf-8 -*-
 """
 Created on Thu Aug 29 16:07:10 2024
 
-@author: szilagyib
+@author: szibence
 """
 
 import random
@@ -129,24 +127,23 @@ def main():
     word_length = 5
     guess_limit = 6
 
+    # Load the word list
     with open("words_alpha.txt", 'r') as wordlist:
-        words = wordlist.readlines()
-        words = [word.strip() for word in words]
-
-    # Filter words by length - list of possible words
-    words = [word for word in words if len(word) == word_length]
+        # Remove leading and trailing whitespaces from each word
+        # Only keep words with the correct length
+        words = [word.strip() for word in wordlist if len(word.strip()) == word_length]
 
     word_to_guess = random.choice(words)
     guesses = 0
 
-
     # DEBUG start ---------------------
+
+    # print(words[0:10])
 
     # word_to_guess = "green"
     # print_color(word_to_guess, "green")
 
     # DEBUG end -----------------------
-
 
     print("Welcome to Wordle!")
     print("The word to guess has {} letters.".format(word_length))
